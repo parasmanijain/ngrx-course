@@ -18,16 +18,25 @@ import {
   tap,
   withLatestFrom,
 } from "rxjs/operators";
-import { CoursesHttpService } from "../services/courses-http.service";
 import { CourseEntityService } from "../services/course-entity.service";
 import { LessonEntityService } from "../services/lesson-entity.service";
+import { MatTableModule } from "@angular/material/table";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { CommonModule } from "@angular/common";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
   selector: "course",
   templateUrl: "./course.component.html",
   styleUrls: ["./course.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false,
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+  ],
+  providers: [CourseEntityService, LessonEntityService],
 })
 export class CourseComponent implements OnInit {
   course$: Observable<Course>;

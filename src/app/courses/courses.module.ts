@@ -26,30 +26,14 @@ import {
   EntityDefinitionService,
   EntityMetadataMap,
 } from "@ngrx/data";
-import { compareCourses, Course } from "./model/course";
+import { compareCourses } from "./model/course";
 
 import { compareLessons, Lesson } from "./model/lesson";
 import { CourseEntityService } from "./services/course-entity.service";
 import { CoursesResolver } from "./services/courses.resolver";
 import { CoursesDataService } from "./services/courses-data.service";
 import { LessonEntityService } from "./services/lesson-entity.service";
-
-export const coursesRoutes: Routes = [
-  {
-    path: "",
-    component: HomeComponent,
-    resolve: {
-      courses: CoursesResolver,
-    },
-  },
-  {
-    path: ":courseUrl",
-    component: CourseComponent,
-    resolve: {
-      courses: CoursesResolver,
-    },
-  },
-];
+import { coursesRoutes } from "./courses.routes";
 
 const entityMetadata: EntityMetadataMap = {
   Course: {
@@ -82,19 +66,14 @@ const entityMetadata: EntityMetadataMap = {
     MatMomentDateModule,
     ReactiveFormsModule,
     RouterModule.forChild(coursesRoutes),
+    CourseComponent,
   ],
   declarations: [
     HomeComponent,
     CoursesCardListComponent,
     EditCourseDialogComponent,
-    CourseComponent,
   ],
-  exports: [
-    HomeComponent,
-    CoursesCardListComponent,
-    EditCourseDialogComponent,
-    CourseComponent,
-  ],
+  exports: [HomeComponent, CoursesCardListComponent, EditCourseDialogComponent],
   providers: [
     CoursesHttpService,
     CourseEntityService,
