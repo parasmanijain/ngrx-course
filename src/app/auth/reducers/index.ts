@@ -1,12 +1,4 @@
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createReducer,
-  createSelector,
-  MetaReducer,
-  on,
-} from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import { User } from "../model/user.model";
 import { AuthActions } from "../action-types";
 

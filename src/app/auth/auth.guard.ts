@@ -9,7 +9,6 @@ import { AppState } from "../reducers";
 import { select, Store } from "@ngrx/store";
 import { isLoggedIn } from "./auth.selectors";
 import { tap } from "rxjs/operators";
-import { login, logout } from "./auth.actions";
 
 @Injectable()
 export class AuthGuard {

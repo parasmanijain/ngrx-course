@@ -20,15 +20,14 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-import { RouterModule, Routes } from "@angular/router";
+import { RouterModule } from "@angular/router";
 import {
   EntityDataService,
   EntityDefinitionService,
   EntityMetadataMap,
 } from "@ngrx/data";
 import { compareCourses } from "./model/course";
-
-import { compareLessons, Lesson } from "./model/lesson";
+import { compareLessons } from "./model/lesson";
 import { CourseEntityService } from "./services/course-entity.service";
 import { CoursesResolver } from "./services/courses.resolver";
 import { CoursesDataService } from "./services/courses-data.service";

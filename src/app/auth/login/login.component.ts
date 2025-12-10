@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -11,7 +11,6 @@ import { noop } from "rxjs";
 import { Router } from "@angular/router";
 import { AppState } from "../../reducers";
 import { login } from "../auth.actions";
-import { AuthActions } from "../action-types";
 
 @Component({
   selector: "login",

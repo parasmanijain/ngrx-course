@@ -12,7 +12,6 @@ import {
   Validators,
 } from "@angular/forms";
 import { Observable } from "rxjs";
-import { CoursesHttpService } from "../services/courses-http.service";
 import { CourseEntityService } from "../services/course-entity.service";
 import { CommonModule } from "@angular/common";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";

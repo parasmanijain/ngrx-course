@@ -1,23 +1,9 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Course } from "../model/course";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 import { Lesson } from "../model/lesson";
-import {
-  concatMap,
-  delay,
-  filter,
-  first,
-  map,
-  shareReplay,
-  tap,
-  withLatestFrom,
-} from "rxjs/operators";
+import { delay, map, tap, withLatestFrom } from "rxjs/operators";
 import { CourseEntityService } from "../services/course-entity.service";
 import { LessonEntityService } from "../services/lesson-entity.service";
 import { MatTableModule } from "@angular/material/table";
