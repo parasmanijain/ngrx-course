@@ -1,38 +1,21 @@
 import { ChangeDetectionStrategy, Component, Inject } from "@angular/core";
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialogTitle, MatDialogContent, MatDialogActions } from "@angular/material/dialog";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { Course } from "../model/course";
-import { UntypedFormBuilder, UntypedFormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from "@angular/forms";
 import { Observable } from "rxjs";
 import { CoursesHttpService } from "../services/courses-http.service";
 import { CourseEntityService } from "../services/course-entity.service";
-import { CdkScrollable } from "@angular/cdk/scrolling";
-import { MatProgressSpinner } from "@angular/material/progress-spinner";
-import { MatFormField, MatInput } from "@angular/material/input";
-import { MatSelect, MatOption } from "@angular/material/select";
-import { MatSlideToggle } from "@angular/material/slide-toggle";
-import { MatButton } from "@angular/material/button";
-import { AsyncPipe } from "@angular/common";
 
 @Component({
-    selector: "course-dialog",
-    templateUrl: "./edit-course-dialog.component.html",
-    styleUrls: ["./edit-course-dialog.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        MatDialogTitle,
-        CdkScrollable,
-        MatDialogContent,
-        MatProgressSpinner,
-        ReactiveFormsModule,
-        MatFormField,
-        MatInput,
-        MatSelect,
-        MatOption,
-        MatSlideToggle,
-        MatDialogActions,
-        MatButton,
-        AsyncPipe,
-    ],
+  selector: "course-dialog",
+  templateUrl: "./edit-course-dialog.component.html",
+  styleUrls: ["./edit-course-dialog.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EditCourseDialogComponent {
   form: UntypedFormGroup;

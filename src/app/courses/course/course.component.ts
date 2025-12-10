@@ -21,31 +21,13 @@ import {
 import { CoursesHttpService } from "../services/courses-http.service";
 import { CourseEntityService } from "../services/course-entity.service";
 import { LessonEntityService } from "../services/lesson-entity.service";
-import { MatProgressSpinner } from "@angular/material/progress-spinner";
-import { MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow } from "@angular/material/table";
-import { MatButton } from "@angular/material/button";
-import { AsyncPipe } from "@angular/common";
 
 @Component({
-    selector: "course",
-    templateUrl: "./course.component.html",
-    styleUrls: ["./course.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        MatProgressSpinner,
-        MatTable,
-        MatColumnDef,
-        MatHeaderCellDef,
-        MatHeaderCell,
-        MatCellDef,
-        MatCell,
-        MatHeaderRowDef,
-        MatHeaderRow,
-        MatRowDef,
-        MatRow,
-        MatButton,
-        AsyncPipe,
-    ],
+  selector: "course",
+  templateUrl: "./course.component.html",
+  styleUrls: ["./course.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CourseComponent implements OnInit {
   course$: Observable<Course>;
