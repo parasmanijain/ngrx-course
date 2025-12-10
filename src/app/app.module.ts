@@ -7,7 +7,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import { HttpClientModule } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthModule } from "./auth/auth.module";
 import { StoreModule } from "@ngrx/store";
@@ -32,39 +32,34 @@ const routes: Routes = [
   },
 ];
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(routes, {}),
-    HttpClientModule,
-    MatMenuModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatProgressSpinnerModule,
-    MatListModule,
-    MatToolbarModule,
-    AuthModule.forRoot(),
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true,
-        strictActionSerializability: true,
-        strictStateSerializability: true,
-      },
-    }),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production,
-    connectInZone: true}),
-    EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot({
-      stateKey: "router",
-      routerState: RouterState.Minimal,
-    }),
-  ],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        BrowserAnimationsModule,
+        RouterModule.forRoot(routes, {}),
+        MatMenuModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatProgressSpinnerModule,
+        MatListModule,
+        MatToolbarModule,
+        AuthModule.forRoot(),
+        StoreModule.forRoot(reducers, {
+            metaReducers,
+            runtimeChecks: {
+                strictStateImmutability: true,
+                strictActionImmutability: true,
+                strictActionSerializability: true,
+                strictStateSerializability: true,
+            },
+        }),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production,
+            connectInZone: true
+        }),
+        EffectsModule.forRoot([]),
+        StoreRouterConnectingModule.forRoot({
+            stateKey: "router",
+            routerState: RouterState.Minimal,
+        })], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
