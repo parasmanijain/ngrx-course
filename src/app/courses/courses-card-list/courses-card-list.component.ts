@@ -15,6 +15,7 @@ import { defaultDialogConfig } from "../shared/default-dialog-config";
   selector: "courses-card-list",
   templateUrl: "./courses-card-list.component.html",
   styleUrls: ["./courses-card-list.component.scss"],
+  standalone: false,
 })
 export class CoursesCardListComponent implements OnInit {
   @Input()

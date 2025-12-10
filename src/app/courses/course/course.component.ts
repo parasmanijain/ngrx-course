@@ -19,6 +19,7 @@ import { CoursesHttpService } from "../services/courses-http.service";
   selector: "course",
   templateUrl: "./course.component.html",
   styleUrls: ["./course.component.scss"],
+  standalone: false,
 })
 export class CourseComponent implements OnInit {
   course$: Observable<Course>;
