@@ -3,10 +3,10 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatMenuModule} from '@angular/material/menu';
+import {MatLegacyMenuModule as MatMenuModule} from '@angular/material/legacy-menu';
 import {MatIconModule} from '@angular/material/icon';
 
-import {MatListModule} from '@angular/material/list';
+import {MatLegacyListModule as MatListModule} from '@angular/material/legacy-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {HttpClientModule} from '@angular/common/http';
@@ -19,7 +19,7 @@ import {environment} from '../environments/environment';
 import {RouterState, StoreRouterConnectingModule} from '@ngrx/router-store';
 
 import {EffectsModule} from '@ngrx/effects';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
 import {metaReducers, reducers} from './reducers';
 import {AuthGuard} from './auth/auth.guard';
 

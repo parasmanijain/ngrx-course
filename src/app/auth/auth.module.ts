@@ -1,11 +1,11 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LoginComponent} from './login/login.component';
-import {MatCardModule} from "@angular/material/card";
-import { MatInputModule } from "@angular/material/input";
+import {MatLegacyCardModule as MatCardModule} from "@angular/material/legacy-card";
+import { MatLegacyInputModule as MatInputModule } from "@angular/material/legacy-input";
 import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
-import {MatButtonModule} from "@angular/material/button";
+import {MatLegacyButtonModule as MatButtonModule} from "@angular/material/legacy-button";
 import { StoreModule } from '@ngrx/store';
 import {AuthService} from "./auth.service";
 import * as fromAuth from './reducers';
