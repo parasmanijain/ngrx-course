@@ -9,22 +9,27 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": {
-              "base": "dist"
-            },
+            "outputPath": "dist",
             "index": "src/index.html",
+            "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "polyfills": ["src/polyfills.ts"],
-            "assets": ["src/assets", "src/favicon.ico"],
-            "styles": ["src/styles.scss"],
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": [],
+            "vendorChunk": true,
             "extractLicenses": false,
+            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true,
-            "browser": "src/main.ts"
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -39,6 +44,8 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -51,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "angular-ngrx-course:build"
+            "browserTarget": "angular-ngrx-course:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "angular-ngrx-course:build:production"
+              "browserTarget": "angular-ngrx-course:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-ngrx-course:build"
+            "browserTarget": "angular-ngrx-course:build"
           }
         },
         "test": {
@@ -73,8 +80,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
-            "styles": ["src/styles.scss"],
-            "assets": ["src/assets", "src/favicon.ico"]
+            "styles": [
+              "src/styles.scss"
+            ],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ]
           }
         }
       }
@@ -94,6 +106,7 @@
       }
     }
   },
+  "defaultProject": "angular-ngrx-course",
   "schematics": {
     "@ngrx/schematics:component": {
       "prefix": "",
@@ -101,34 +114,10 @@
     },
     "@ngrx/schematics:directive": {
       "prefix": ""
-    },
-    "@schematics/angular:component": {
-      "type": "component"
-    },
-    "@schematics/angular:directive": {
-      "type": "directive"
-    },
-    "@schematics/angular:service": {
-      "type": "service"
-    },
-    "@schematics/angular:guard": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:interceptor": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:module": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:pipe": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:resolver": {
-      "typeSeparator": "."
     }
   },
   "cli": {
-    "analytics": "78da76fb-38f9-4848-a7fe-1767a6672d4a",
-    "schematicCollections": ["@ngrx/schematics"]
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "f55f4a8f-5057-4bd1-bc62-645d74960959"
   }
 }
