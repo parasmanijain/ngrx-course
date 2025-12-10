@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { DefaultDataService, HttpUrlGenerator } from "@ngrx/data";
-import { Course } from "../model/course";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { Course } from "../model/course";
 
 @Injectable()
 export class CoursesDataService extends DefaultDataService<Course> {

@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Course } from "../model/course";
 import { Observable } from "rxjs";
-import { Lesson } from "../model/lesson";
 import { delay, map, tap, withLatestFrom } from "rxjs/operators";
-import { CourseEntityService } from "../services/course-entity.service";
-import { LessonEntityService } from "../services/lesson-entity.service";
 import { MatTableModule } from "@angular/material/table";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { CommonModule } from "@angular/common";
 import { MatButtonModule } from "@angular/material/button";
+import { LessonEntityService } from "../services/lesson-entity.service";
+import { CourseEntityService } from "../services/course-entity.service";
+import { Course } from "../model/course";
+import { Lesson } from "../model/lesson";
 
 @Component({
   selector: "course",

@@ -1,17 +1,15 @@
 import * as express from "express";
 import { Application } from "express";
-import { getAllCourses, getCourseByUrl } from "./get-courses.route";
-import { searchLessons } from "./search-lessons.route";
+import * as bodyParser from "body-parser";
+import * as cors from "cors";
 import { loginUser } from "./auth.route";
-import { saveCourse } from "./save-course.route";
+import { getAllCourses, getCourseByUrl } from "./get-courses.route";
 import { createCourse } from "./create-course.route";
+import { saveCourse } from "./save-course.route";
 import { deleteCourse } from "./delete-course.route";
-
-const bodyParser = require("body-parser");
+import { searchLessons } from "./search-lessons.route";
 
 const app: Application = express();
-
-const cors = require("cors");
 
 app.use(cors({ origin: true }));
 

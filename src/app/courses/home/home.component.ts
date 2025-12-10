@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
-import { Course } from "../model/course";
 import { Observable } from "rxjs";
-import { defaultDialogConfig } from "../shared/default-dialog-config";
-import { EditCourseDialogComponent } from "../edit-course-dialog/edit-course-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { map } from "rxjs/operators";
 import { CourseEntityService } from "../services/course-entity.service";
+import { Course } from "../model/course";
+import { defaultDialogConfig } from "../shared/default-dialog-config";
+import { EditCourseDialogComponent } from "../edit-course-dialog/edit-course-dialog.component";
 
 @Component({
   selector: "home",

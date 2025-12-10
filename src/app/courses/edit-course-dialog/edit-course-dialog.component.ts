@@ -4,7 +4,6 @@ import {
   MatDialogModule,
   MatDialogRef,
 } from "@angular/material/dialog";
-import { Course } from "../model/course";
 import {
   ReactiveFormsModule,
   UntypedFormBuilder,
@@ -12,7 +11,6 @@ import {
   Validators,
 } from "@angular/forms";
 import { Observable } from "rxjs";
-import { CourseEntityService } from "../services/course-entity.service";
 import { CommonModule } from "@angular/common";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatFormFieldModule } from "@angular/material/form-field";
@@ -20,6 +18,8 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { CourseEntityService } from "../services/course-entity.service";
+import { Course } from "../model/course";
 
 @Component({
   selector: "course-dialog",

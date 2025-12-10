@@ -1,10 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { HomeComponent } from "./home/home.component";
-import { CoursesCardListComponent } from "./courses-card-list/courses-card-list.component";
-import { EditCourseDialogComponent } from "./edit-course-dialog/edit-course-dialog.component";
-import { CoursesHttpService } from "./services/courses-http.service";
-import { CourseComponent } from "./course/course.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
@@ -33,6 +28,11 @@ import { CoursesResolver } from "./services/courses.resolver";
 import { CoursesDataService } from "./services/courses-data.service";
 import { LessonEntityService } from "./services/lesson-entity.service";
 import { coursesRoutes } from "./courses.routes";
+import { CoursesHttpService } from "./services/courses-http.service";
+import { HomeComponent } from "./home/home.component";
+import { CourseComponent } from "./course/course.component";
+import { EditCourseDialogComponent } from "./edit-course-dialog/edit-course-dialog.component";
+import { CoursesCardListComponent } from "./courses-card-list/courses-card-list.component";
 
 const entityMetadata: EntityMetadataMap = {
   Course: {

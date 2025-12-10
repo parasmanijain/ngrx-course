@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { Observable } from "rxjs";
+import { filter, first, tap } from "rxjs/operators";
 import { CourseEntityService } from "./course-entity.service";
-import { filter, first, map, tap } from "rxjs/operators";
 
 @Injectable()
 export class CoursesResolver {
