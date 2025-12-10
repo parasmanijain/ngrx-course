@@ -15,8 +15,8 @@ export class AuthGuard {
   constructor(private store: Store<AppState>, private router: Router) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    _: ActivatedRouteSnapshot,
+    _2: RouterStateSnapshot
   ): Observable<boolean> {
     return this.store.pipe(
       select(isLoggedIn),
