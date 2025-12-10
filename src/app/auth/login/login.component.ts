@@ -1,9 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import {
-  UntypedFormBuilder,
-  UntypedFormGroup,
-  Validators,
-} from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { AuthService } from "../auth.service";
 import { tap } from "rxjs/operators";
@@ -12,12 +8,23 @@ import { Router } from "@angular/router";
 import { AppState } from "../../reducers";
 import { login } from "../auth.actions";
 import { AuthActions } from "../action-types";
+import { MatCard, MatCardTitle, MatCardContent } from "@angular/material/card";
+import { MatFormField, MatInput } from "@angular/material/input";
+import { MatButton } from "@angular/material/button";
 
 @Component({
-  selector: "login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"],
-  standalone: false,
+    selector: "login",
+    templateUrl: "./login.component.html",
+    styleUrls: ["./login.component.scss"],
+    imports: [
+        MatCard,
+        MatCardTitle,
+        MatCardContent,
+        ReactiveFormsModule,
+        MatFormField,
+        MatInput,
+        MatButton,
+    ],
 })
 export class LoginComponent implements OnInit {
   form: UntypedFormGroup;

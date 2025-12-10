@@ -6,13 +6,25 @@ import { EditCourseDialogComponent } from "../edit-course-dialog/edit-course-dia
 import { MatDialog } from "@angular/material/dialog";
 import { map } from "rxjs/operators";
 import { CourseEntityService } from "../services/course-entity.service";
+import { MatMiniFabButton } from "@angular/material/button";
+import { MatIcon } from "@angular/material/icon";
+import { MatTabGroup, MatTab } from "@angular/material/tabs";
+import { CoursesCardListComponent } from "../courses-card-list/courses-card-list.component";
+import { AsyncPipe } from "@angular/common";
 
 @Component({
-  selector: "home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false,
+    selector: "home",
+    templateUrl: "./home.component.html",
+    styleUrls: ["./home.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        MatMiniFabButton,
+        MatIcon,
+        MatTabGroup,
+        MatTab,
+        CoursesCardListComponent,
+        AsyncPipe,
+    ],
 })
 export class HomeComponent implements OnInit {
   promoTotal$: Observable<number>;

@@ -12,12 +12,27 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { EditCourseDialogComponent } from "../edit-course-dialog/edit-course-dialog.component";
 import { defaultDialogConfig } from "../shared/default-dialog-config";
 import { CourseEntityService } from "../services/course-entity.service";
+import { MatCard, MatCardHeader, MatCardTitle, MatCardImage, MatCardContent, MatCardActions } from "@angular/material/card";
+import { MatButton, MatMiniFabButton } from "@angular/material/button";
+import { RouterLink } from "@angular/router";
+import { MatIcon } from "@angular/material/icon";
 
 @Component({
-  selector: "courses-card-list",
-  templateUrl: "./courses-card-list.component.html",
-  styleUrls: ["./courses-card-list.component.scss"],
-  standalone: false,
+    selector: "courses-card-list",
+    templateUrl: "./courses-card-list.component.html",
+    styleUrls: ["./courses-card-list.component.scss"],
+    imports: [
+        MatCard,
+        MatCardHeader,
+        MatCardTitle,
+        MatCardImage,
+        MatCardContent,
+        MatCardActions,
+        MatButton,
+        RouterLink,
+        MatMiniFabButton,
+        MatIcon,
+    ],
 })
 export class CoursesCardListComponent implements OnInit {
   @Input()

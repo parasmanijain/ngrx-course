@@ -8,16 +8,28 @@ import {
   NavigationError,
   NavigationStart,
   Router,
+  RouterModule,
 } from "@angular/router";
 import { AppState } from "./reducers";
 import { isLoggedIn, isLoggedOut } from "./auth/auth.selectors";
 import { login, logout } from "./auth/auth.actions";
-
+import { MatIconModule } from "@angular/material/icon";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { CommonModule } from "@angular/common";
+import { MatListModule } from "@angular/material/list";
+import { MatSidenavModule } from "@angular/material/sidenav";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
-  standalone: false,
+  imports: [
+    RouterModule,
+    CommonModule,
+    MatListModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatToolbarModule,
+  ],
 })
 export class AppComponent implements OnInit {
   loading = true;
