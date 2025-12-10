@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component, Inject } from "@angular/core";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from "@angular/material/dialog";
 import { Course } from "../model/course";
 import {
+  ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
@@ -9,13 +14,31 @@ import {
 import { Observable } from "rxjs";
 import { CoursesHttpService } from "../services/courses-http.service";
 import { CourseEntityService } from "../services/course-entity.service";
+import { CommonModule } from "@angular/common";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 @Component({
   selector: "course-dialog",
   templateUrl: "./edit-course-dialog.component.html",
   styleUrls: ["./edit-course-dialog.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+  ],
+  providers: [CourseEntityService],
 })
 export class EditCourseDialogComponent {
   form: UntypedFormGroup;

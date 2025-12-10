@@ -67,13 +67,11 @@ const entityMetadata: EntityMetadataMap = {
     ReactiveFormsModule,
     RouterModule.forChild(coursesRoutes),
     CourseComponent,
-  ],
-  declarations: [
-    HomeComponent,
     CoursesCardListComponent,
     EditCourseDialogComponent,
   ],
-  exports: [HomeComponent, CoursesCardListComponent, EditCourseDialogComponent],
+  declarations: [HomeComponent],
+  exports: [HomeComponent],
   providers: [
     CoursesHttpService,
     CourseEntityService,
