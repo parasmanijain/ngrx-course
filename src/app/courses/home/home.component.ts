@@ -1,16 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import { Course } from "../model/course";
 import { Observable } from "rxjs";
-import { defaultDialogConfig } from "../shared/default-dialog-config";
-import { EditCourseDialogComponent } from "../edit-course-dialog/edit-course-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
-import { AppState } from "../../reducers";
 import { select, Store } from "@ngrx/store";
 import {
   selectAdvancedCourses,
   selectBeginnerCourses,
   selectPromoTotal,
 } from "../courses.selectors";
+import { Course } from "../model/course";
+import { AppState } from "../../reducers";
+import { defaultDialogConfig } from "../shared/default-dialog-config";
+import { EditCourseDialogComponent } from "../edit-course-dialog/edit-course-dialog.component";
 
 @Component({
   selector: "home",

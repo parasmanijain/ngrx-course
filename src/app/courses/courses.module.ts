@@ -1,10 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { HomeComponent } from "./home/home.component";
-import { CoursesCardListComponent } from "./courses-card-list/courses-card-list.component";
-import { EditCourseDialogComponent } from "./edit-course-dialog/edit-course-dialog.component";
-import { CoursesHttpService } from "./services/courses-http.service";
-import { CourseComponent } from "./course/course.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
@@ -21,11 +16,16 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { RouterModule, Routes } from "@angular/router";
-import { CoursesResolver } from "./courses.resolver";
 import { EffectsModule } from "@ngrx/effects";
-import { CoursesEffects } from "./courses.effects";
 import { StoreModule } from "@ngrx/store";
 import { coursesReducer } from "./reducers/course.reducers";
+import { HomeComponent } from "./home/home.component";
+import { CoursesResolver } from "./courses.resolver";
+import { CourseComponent } from "./course/course.component";
+import { CoursesHttpService } from "./services/courses-http.service";
+import { CoursesCardListComponent } from "./courses-card-list/courses-card-list.component";
+import { EditCourseDialogComponent } from "./edit-course-dialog/edit-course-dialog.component";
+import { CoursesEffects } from "./courses.effects";
 
 export const coursesRoutes: Routes = [
   {

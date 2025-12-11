@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
-import { Course } from "./model/course";
 import { Update } from "@ngrx/entity";
+import { Course } from "./model/course";
 
 export const loadAllCourses = createAction(
   "[Courses Resolver] Load All Courses"

@@ -5,11 +5,11 @@ import {
   RouterStateSnapshot,
 } from "@angular/router";
 import { Observable } from "rxjs";
-import { AppState } from "../reducers";
 import { select, Store } from "@ngrx/store";
 import { filter, finalize, first, tap } from "rxjs/operators";
 import { loadAllCourses } from "./course.actions";
 import { areCoursesLoaded } from "./courses.selectors";
+import { AppState } from "../reducers";
 
 @Injectable()
 export class CoursesResolver implements Resolve<any> {

@@ -1,7 +1,7 @@
-import { compareCourses, Course } from "../model/course";
 import { createEntityAdapter, EntityState } from "@ngrx/entity";
 import { createReducer, on } from "@ngrx/store";
 import { CourseActions } from "../action-types";
+import { compareCourses, Course } from "../model/course";
 
 export interface CoursesState extends EntityState<Course> {
   allCoursesLoaded: boolean;

@@ -1,16 +1,16 @@
 import { Component, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { Course } from "../model/course";
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
 } from "@angular/forms";
 import { Observable } from "rxjs";
-import { AppState } from "../../reducers";
 import { Store } from "@ngrx/store";
 import { Update } from "@ngrx/entity";
 import { courseUpdated } from "../course.actions";
+import { Course } from "../model/course";
+import { AppState } from "../../reducers";
 
 @Component({
   selector: "course-dialog",
