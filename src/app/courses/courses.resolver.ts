@@ -18,8 +18,8 @@ export class CoursesResolver implements Resolve<any> {
   constructor(private store: Store<AppState>) {}
 
   resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    _route: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot
   ): Observable<any> {
     return this.store.pipe(
       select(areCoursesLoaded),
