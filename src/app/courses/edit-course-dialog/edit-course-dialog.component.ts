@@ -10,9 +10,10 @@ import {Update} from '@ngrx/entity';
 import {courseUpdated} from '../course.actions';
 
 @Component({
-  selector: 'course-dialog',
-  templateUrl: './edit-course-dialog.component.html',
-  styleUrls: ['./edit-course-dialog.component.css']
+    selector: 'course-dialog',
+    templateUrl: './edit-course-dialog.component.html',
+    styleUrls: ['./edit-course-dialog.component.css'],
+    standalone: false
 })
 export class EditCourseDialogComponent {
 
