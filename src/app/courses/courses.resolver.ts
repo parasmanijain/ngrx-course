@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {Observable} from 'rxjs';
 import {AppState} from '../reducers';
 import {select, Store} from '@ngrx/store';
@@ -9,7 +9,7 @@ import {areCoursesLoaded} from './courses.selectors';
 
 
 @Injectable()
-export class CoursesResolver implements Resolve<any> {
+export class CoursesResolver  {
 
     loading = false;
 
