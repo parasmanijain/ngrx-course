@@ -10,7 +10,7 @@ export class CoursesEffects {
   loadCourses$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CourseActions.loadAllCourses),
-      concatMap((action) => this.coursesHttpService.findAllCourses()),
+      concatMap(() => this.coursesHttpService.findAllCourses()),
       map((courses) => allCoursesLoaded({ courses }))
     )
   );
