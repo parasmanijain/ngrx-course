@@ -106,7 +106,6 @@
       }
     }
   },
-  "defaultProject": "angular-ngrx-course",
   "schematics": {
     "@ngrx/schematics:component": {
       "prefix": "",
@@ -117,6 +116,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@ngrx/schematics"
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }
