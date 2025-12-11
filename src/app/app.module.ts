@@ -62,7 +62,7 @@ const routes: Routes = [
                 strictStateSerializability:true
             }
         }),
-        StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+        StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production, connectInZone: true}),
         EffectsModule.forRoot([]),
         StoreRouterConnectingModule.forRoot({
             stateKey: 'router',
