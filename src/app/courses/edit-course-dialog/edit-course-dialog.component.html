@@ -1,5 +1,4 @@
 <h2 mat-dialog-title>{{ dialogTitle }}</h2>
-
 <mat-dialog-content>
   @if (form) { @if (loading$ | async) {
   <div class="spinner-container">
@@ -14,7 +13,7 @@
         formControlName="description"
       />
     </mat-form-field>
-    @if (mode == 'create') {
+    @if (mode === 'create') {
     <mat-form-field>
       <input matInput placeholder="Course Url" formControlName="url" />
     </mat-form-field>
@@ -41,10 +40,8 @@
   </ng-container>
   }
 </mat-dialog-content>
-
 <mat-dialog-actions>
   <button mat-raised-button (click)="onClose()">Close</button>
-
   <button
     mat-raised-button
     color="primary"

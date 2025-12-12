@@ -1,16 +1,13 @@
 <div class="courses-panel">
   <div class="header">
     <h2 class="title">All Courses</h2>
-
     <button mat-mini-fab>
       <mat-icon class="add-course-btn" (click)="onAddCourse()">add</mat-icon>
     </button>
   </div>
-
   <div class="counters">
     <p>In Promo: {{ promoTotal$ | async }}</p>
   </div>
-
   <mat-tab-group>
     <mat-tab label="Beginners">
       <courses-card-list
@@ -19,7 +16,6 @@
       >
       </courses-card-list>
     </mat-tab>
-
     <mat-tab label="Advanced">
       <courses-card-list
         (courseChanged)="reload()"

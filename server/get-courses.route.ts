@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { COURSES } from "./db-data";
+import { Course } from "../src/app/courses/model/course";
 
 export function getAllCourses(req: Request, res: Response) {
   console.log("Retrieving courses data ...");
@@ -14,7 +15,7 @@ export function getCourseByUrl(req: Request, res: Response) {
 
   const courses: any = Object.values(COURSES);
 
-  const course = courses.find((course) => course.url == courseUrl);
+  const course = courses.find((course: Course) => course.url === courseUrl);
 
   setTimeout(() => {
     res.status(200).json(course);

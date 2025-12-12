@@ -67,10 +67,10 @@ export class EditCourseDialogComponent {
       promo: ["", []],
     };
 
-    if (this.mode == "update") {
+    if (this.mode === "update") {
       this.form = this.fb.group(formControls);
       this.form.patchValue({ ...data.course });
-    } else if (this.mode == "create") {
+    } else if (this.mode === "create") {
       this.form = this.fb.group({
         ...formControls,
         url: ["", Validators.required],
@@ -89,11 +89,11 @@ export class EditCourseDialogComponent {
       ...this.form.value,
     };
 
-    if (this.mode == "update") {
+    if (this.mode === "update") {
       this.coursesService.update(course);
 
       this.dialogRef.close();
-    } else if (this.mode == "create") {
+    } else if (this.mode === "create") {
       this.coursesService.add(course).subscribe((newCourse) => {
         console.log("New Course", newCourse);
 

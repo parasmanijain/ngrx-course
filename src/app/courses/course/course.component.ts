@@ -45,18 +45,18 @@ export class CourseComponent implements OnInit {
     const courseUrl = this.route.snapshot.paramMap.get("courseUrl");
 
     this.course$ = this.coursesService.entities$.pipe(
-      map((courses) => courses.find((course) => course.url == courseUrl))
+      map((courses) => courses.find((course) => course.url === courseUrl))
     );
 
     this.lessons$ = this.lessonsService.entities$.pipe(
       withLatestFrom(this.course$),
-      tap(([lessons, course]) => {
-        if (this.nextPage == 0) {
+      tap(([_, course]) => {
+        if (this.nextPage === 0) {
           this.loadLessonsPage(course);
         }
       }),
       map(([lessons, course]) =>
-        lessons.filter((lesson) => lesson.courseId == course.id)
+        lessons.filter((lesson) => lesson.courseId === course.id)
       )
     );
 

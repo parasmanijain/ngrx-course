@@ -13,7 +13,7 @@ export function searchLessons(req: Request, res: Response) {
     pageSize = parseInt(queryParams.pageSize);
 
   let lessons = Object.values(LESSONS)
-    .filter((lesson) => lesson.courseId == courseId)
+    .filter((lesson) => lesson.courseId === courseId)
     .sort((l1, l2) => l1.id - l2.id);
 
   if (filter) {
@@ -24,7 +24,7 @@ export function searchLessons(req: Request, res: Response) {
     );
   }
 
-  if (sortOrder == "desc") {
+  if (sortOrder === "desc") {
     lessons = lessons.reverse();
   }
 

@@ -33,13 +33,13 @@ export class HomeComponent implements OnInit {
   reload() {
     this.beginnerCourses$ = this.coursesService.entities$.pipe(
       map((courses) =>
-        courses.filter((course) => course.category == "BEGINNER")
+        courses.filter((course) => course.category === "BEGINNER")
       )
     );
 
     this.advancedCourses$ = this.coursesService.entities$.pipe(
       map((courses) =>
-        courses.filter((course) => course.category == "ADVANCED")
+        courses.filter((course) => course.category === "ADVANCED")
       )
     );
 
