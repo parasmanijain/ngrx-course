@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { distinctUntilChanged, map } from "rxjs/operators";
 import {
   NavigationCancel,
   NavigationEnd,
@@ -16,7 +15,7 @@ import { login, logout } from "./auth/auth.actions";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"],
+  styleUrls: ["./app.component.scss"],
   standalone: false,
 })
 export class AppComponent implements OnInit {

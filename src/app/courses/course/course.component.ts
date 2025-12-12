@@ -1,24 +1,15 @@
-import { AfterViewInit, Component, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Course } from "../model/course";
 import { Observable } from "rxjs";
-import { Lesson } from "../model/lesson";
-import {
-  concatMap,
-  delay,
-  filter,
-  first,
-  map,
-  shareReplay,
-  tap,
-  withLatestFrom,
-} from "rxjs/operators";
+import { concatMap, tap } from "rxjs/operators";
 import { CoursesHttpService } from "../services/courses-http.service";
+import { Course } from "../model/course";
+import { Lesson } from "../model/lesson";
 
 @Component({
   selector: "course",
   templateUrl: "./course.component.html",
-  styleUrls: ["./course.component.css"],
+  styleUrls: ["./course.component.scss"],
   standalone: false,
 })
 export class CourseComponent implements OnInit {
