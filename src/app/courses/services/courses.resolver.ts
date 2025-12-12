@@ -1,16 +1,20 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import {
+  ActivatedRouteSnapshot,
+  Resolve,
+  RouterStateSnapshot,
+} from "@angular/router";
 import { Observable } from "rxjs";
 import { filter, first, tap } from "rxjs/operators";
 import { CourseEntityService } from "./course-entity.service";
 
 @Injectable()
-export class CoursesResolver {
+export class CoursesResolver implements Resolve<boolean> {
   constructor(private coursesService: CourseEntityService) {}
 
   resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    _route: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot
   ): Observable<boolean> {
     return this.coursesService.loaded$.pipe(
       tap((loaded) => {
