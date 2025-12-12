@@ -6,15 +6,16 @@
         <span>Courses</span>
       </a>
       @if (isLoggedOut$ | async) {
-      <a mat-list-item routerLink="/login">
-        <mat-icon>account_circle</mat-icon>
-        <span>Login</span>
-      </a>
-      } @if (isLoggedIn$ | async) {
-      <a mat-list-item (click)="logout()">
-        <mat-icon>exit_to_app</mat-icon>
-        <span>Logout</span>
-      </a>
+        <a mat-list-item routerLink="/login">
+          <mat-icon>account_circle</mat-icon>
+          <span>Login</span>
+        </a>
+      }
+      @if (isLoggedIn$ | async) {
+        <a mat-list-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </a>
       }
     </mat-nav-list>
   </mat-sidenav>
@@ -24,9 +25,9 @@
     </button>
   </mat-toolbar>
   @if (loading) {
-  <div class="spinner-container">
-    <mat-spinner></mat-spinner>
-  </div>
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
   }
   <router-outlet></router-outlet>
 </mat-sidenav-container>
