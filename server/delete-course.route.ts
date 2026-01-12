@@ -4,7 +4,7 @@ import { COURSES } from "./db-data";
 export function deleteCourse(req: Request, res: Response) {
   console.log("Deleting course ...");
 
-  const id = req.params["id"];
+  const id = Number(req.params["id"]);
 
   delete COURSES[id];
 
