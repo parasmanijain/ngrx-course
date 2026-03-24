@@ -25,11 +25,11 @@ import { Lesson } from "../model/lesson";
   providers: [CourseEntityService, LessonEntityService],
 })
 export class CourseComponent implements OnInit {
-  course$: Observable<Course>;
+  course$!: Observable<Course | undefined>;
 
-  loading$: Observable<boolean>;
+  loading$!: Observable<boolean>;
 
-  lessons$: Observable<Lesson[]>;
+  lessons$!: Observable<Lesson[]>;
 
   displayedColumns = ["seqNo", "description", "duration"];
 
@@ -38,32 +38,32 @@ export class CourseComponent implements OnInit {
   constructor(
     private coursesService: CourseEntityService,
     private lessonsService: LessonEntityService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const courseUrl = this.route.snapshot.paramMap.get("courseUrl");
 
     this.course$ = this.coursesService.entities$.pipe(
-      map((courses) => courses.find((course) => course.url === courseUrl))
+      map((courses) => courses.find((course) => course.url === courseUrl)),
     );
 
     this.lessons$ = this.lessonsService.entities$.pipe(
       withLatestFrom(this.course$),
-      tap(([_, course]) => {
-        if (this.nextPage === 0) {
+      tap(([lessons, course]) => {
+        if (this.nextPage === 0 && course) {
           this.loadLessonsPage(course);
         }
       }),
       map(([lessons, course]) =>
-        lessons.filter((lesson) => lesson.courseId === course.id)
-      )
+        course ? lessons.filter((lesson) => lesson.courseId === course.id) : [],
+      ),
     );
 
     this.loading$ = this.lessonsService.loading$.pipe(delay(0));
   }
 
-  loadLessonsPage(course: Course) {
+  loadLessonsPage(course: Course): void {
     this.lessonsService.getWithQuery({
       courseId: course.id.toString(),
       pageNumber: this.nextPage.toString(),

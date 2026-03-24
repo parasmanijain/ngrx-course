@@ -5,12 +5,18 @@ import { map } from "rxjs/operators";
 import { Lesson } from "../model/lesson";
 import { Course } from "../model/course";
 
+interface ApiResponse {
+  payload: Course[];
+}
+
 @Injectable()
 export class CoursesHttpService {
   constructor(private http: HttpClient) {}
 
   findAllCourses(): Observable<Course[]> {
-    return this.http.get("/api/courses").pipe(map((res) => res["payload"]));
+    return this.http
+      .get<ApiResponse>("/api/courses")
+      .pipe(map((res) => res.payload));
   }
 
   findCourseByUrl(courseUrl: string): Observable<Course> {
@@ -20,7 +26,7 @@ export class CoursesHttpService {
   findLessons(
     courseId: number,
     pageNumber = 0,
-    pageSize = 3
+    pageSize = 3,
   ): Observable<Lesson[]> {
     return this.http.get<Lesson[]>("/api/lessons", {
       params: new HttpParams()
@@ -31,7 +37,10 @@ export class CoursesHttpService {
     });
   }
 
-  saveCourse(courseId: string | number, changes: Partial<Course>) {
-    return this.http.put("/api/course/" + courseId, changes);
+  saveCourse(
+    courseId: string | number,
+    changes: Partial<Course>,
+  ): Observable<Course> {
+    return this.http.put<Course>("/api/course/" + courseId, changes);
   }
 }

@@ -3,11 +3,11 @@ import { User } from "../model/user.model";
 import { AuthActions } from "../action-types";
 
 export interface AuthState {
-  user: User;
+  user: User | null;
 }
 
 export const initialAuthState: AuthState = {
-  user: undefined,
+  user: null,
 };
 
 export const authReducer = createReducer(
@@ -19,9 +19,9 @@ export const authReducer = createReducer(
     };
   }),
 
-  on(AuthActions.logout, (state, action) => {
+  on(AuthActions.logout, (state) => {
     return {
-      user: undefined,
+      user: null,
     };
-  })
+  }),
 );

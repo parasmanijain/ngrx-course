@@ -21,6 +21,12 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { CourseEntityService } from "../services/course-entity.service";
 import { Course } from "../model/course";
 
+interface DialogData {
+  dialogTitle: string;
+  course?: Course;
+  mode: "create" | "update";
+}
+
 @Component({
   selector: "course-dialog",
   templateUrl: "./edit-course-dialog.component.html",
@@ -40,21 +46,21 @@ import { Course } from "../model/course";
   providers: [CourseEntityService],
 })
 export class EditCourseDialogComponent {
-  form: UntypedFormGroup;
+  form!: UntypedFormGroup;
 
   dialogTitle: string;
 
-  course: Course;
+  course?: Course;
 
   mode: "create" | "update";
 
-  loading$: Observable<boolean>;
+  loading$!: Observable<boolean>;
 
   constructor(
     private fb: UntypedFormBuilder,
     private dialogRef: MatDialogRef<EditCourseDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) data,
-    private coursesService: CourseEntityService
+    @Inject(MAT_DIALOG_DATA) data: DialogData,
+    private coursesService: CourseEntityService,
   ) {
     this.dialogTitle = data.dialogTitle;
     this.course = data.course;
@@ -64,12 +70,14 @@ export class EditCourseDialogComponent {
       description: ["", Validators.required],
       category: ["", Validators.required],
       longDescription: ["", Validators.required],
-      promo: ["", []],
+      promo: [false, []],
     };
 
     if (this.mode === "update") {
       this.form = this.fb.group(formControls);
-      this.form.patchValue({ ...data.course });
+      if (data.course) {
+        this.form.patchValue({ ...data.course });
+      }
     } else if (this.mode === "create") {
       this.form = this.fb.group({
         ...formControls,
@@ -79,24 +87,26 @@ export class EditCourseDialogComponent {
     }
   }
 
-  onClose() {
+  onClose(): void {
     this.dialogRef.close();
   }
 
-  onSave() {
-    const course: Course = {
+  onSave(): void {
+    if (!this.form.valid) {
+      return;
+    }
+
+    const course: Partial<Course> = {
       ...this.course,
       ...this.form.value,
     };
 
-    if (this.mode === "update") {
-      this.coursesService.update(course);
-
+    if (this.mode === "update" && this.course) {
+      this.coursesService.update(course as Course);
       this.dialogRef.close();
     } else if (this.mode === "create") {
-      this.coursesService.add(course).subscribe((newCourse) => {
+      this.coursesService.add(course as Course).subscribe((newCourse) => {
         console.log("New Course", newCourse);
-
         this.dialogRef.close();
       });
     }

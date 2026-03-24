@@ -21,13 +21,16 @@ import { login, logout } from "./auth/auth.actions";
 export class AppComponent implements OnInit {
   loading = true;
 
-  isLoggedIn$: Observable<boolean>;
+  isLoggedIn$!: Observable<boolean>;
 
-  isLoggedOut$: Observable<boolean>;
+  isLoggedOut$!: Observable<boolean>;
 
-  constructor(private router: Router, private store: Store<AppState>) {}
+  constructor(
+    private router: Router,
+    private store: Store<AppState>,
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const userProfile = localStorage.getItem("user");
 
     if (userProfile) {
@@ -58,7 +61,7 @@ export class AppComponent implements OnInit {
     this.isLoggedOut$ = this.store.pipe(select(isLoggedOut));
   }
 
-  logout() {
+  logout(): void {
     this.store.dispatch(logout());
   }
 }

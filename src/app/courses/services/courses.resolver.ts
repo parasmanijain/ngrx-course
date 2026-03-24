@@ -13,8 +13,8 @@ export class CoursesResolver implements Resolve<boolean> {
   constructor(private coursesService: CourseEntityService) {}
 
   resolve(
-    _route: ActivatedRouteSnapshot,
-    _state: RouterStateSnapshot
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot,
   ): Observable<boolean> {
     return this.coursesService.loaded$.pipe(
       tap((loaded) => {
@@ -23,7 +23,7 @@ export class CoursesResolver implements Resolve<boolean> {
         }
       }),
       filter((loaded) => !!loaded),
-      first()
+      first(),
     );
   }
 }

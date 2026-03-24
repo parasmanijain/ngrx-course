@@ -2,13 +2,17 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/e2e",
-    "baseUrl": "./",
     "module": "commonjs",
-    "target": "es5",
+    "target": "ES2022",
     "types": [
       "jasmine",
       "jasminewd2",
       "node"
-    ]
-  }
+    ],
+    "strict": false,
+    "skipLibCheck": true
+  },
+  "include": [
+    "**/*.ts"
+  ]
 }

@@ -15,40 +15,40 @@ import { EditCourseDialogComponent } from "../edit-course-dialog/edit-course-dia
   standalone: false,
 })
 export class HomeComponent implements OnInit {
-  promoTotal$: Observable<number>;
+  promoTotal$!: Observable<number>;
 
-  beginnerCourses$: Observable<Course[]>;
+  beginnerCourses$!: Observable<Course[]>;
 
-  advancedCourses$: Observable<Course[]>;
+  advancedCourses$!: Observable<Course[]>;
 
   constructor(
     private dialog: MatDialog,
-    private coursesService: CourseEntityService
+    private coursesService: CourseEntityService,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.reload();
   }
 
-  reload() {
+  reload(): void {
     this.beginnerCourses$ = this.coursesService.entities$.pipe(
       map((courses) =>
-        courses.filter((course) => course.category === "BEGINNER")
-      )
+        courses.filter((course) => course.category === "BEGINNER"),
+      ),
     );
 
     this.advancedCourses$ = this.coursesService.entities$.pipe(
       map((courses) =>
-        courses.filter((course) => course.category === "ADVANCED")
-      )
+        courses.filter((course) => course.category === "ADVANCED"),
+      ),
     );
 
     this.promoTotal$ = this.coursesService.entities$.pipe(
-      map((courses) => courses.filter((course) => course.promo).length)
+      map((courses) => courses.filter((course) => course.promo).length),
     );
   }
 
-  onAddCourse() {
+  onAddCourse(): void {
     const dialogConfig = defaultDialogConfig();
 
     dialogConfig.data = {

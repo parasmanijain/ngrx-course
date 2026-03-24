@@ -13,11 +13,14 @@ import { isLoggedIn } from "./auth.selectors";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private store: Store<AppState>, private router: Router) {}
+  constructor(
+    private store: Store<AppState>,
+    private router: Router,
+  ) {}
 
   canActivate(
-    _: ActivatedRouteSnapshot,
-    _2: RouterStateSnapshot
+    _route: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot,
   ): Observable<boolean> {
     return this.store.pipe(
       select(isLoggedIn),
@@ -25,7 +28,7 @@ export class AuthGuard implements CanActivate {
         if (!loggedIn) {
           this.router.navigateByUrl("/login");
         }
-      })
+      }),
     );
   }
 }

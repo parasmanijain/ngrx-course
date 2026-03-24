@@ -5,13 +5,19 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Course } from "../model/course";
 
+interface ApiResponse {
+  payload: Course[];
+}
+
 @Injectable()
 export class CoursesDataService extends DefaultDataService<Course> {
   constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator) {
     super("Course", http, httpUrlGenerator);
   }
 
-  getAll(): Observable<Course[]> {
-    return this.http.get("/api/courses").pipe(map((res) => res["payload"]));
+  override getAll(): Observable<Course[]> {
+    return this.http
+      .get<ApiResponse>("/api/courses")
+      .pipe(map((res) => res.payload));
   }
 }

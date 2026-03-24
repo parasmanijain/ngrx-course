@@ -26,19 +26,19 @@ import { EditCourseDialogComponent } from "../edit-course-dialog/edit-course-dia
 })
 export class CoursesCardListComponent implements OnInit {
   @Input()
-  courses: Course[];
+  courses: Course[] = [];
 
   @Output()
-  courseChanged = new EventEmitter();
+  courseChanged = new EventEmitter<void>();
 
   constructor(
     private dialog: MatDialog,
-    private courseService: CourseEntityService
+    private courseService: CourseEntityService,
   ) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
-  editCourse(course: Course) {
+  editCourse(course: Course): void {
     const dialogConfig = defaultDialogConfig();
 
     dialogConfig.data = {
@@ -53,10 +53,10 @@ export class CoursesCardListComponent implements OnInit {
       .subscribe(() => this.courseChanged.emit());
   }
 
-  onDeleteCourse(course: Course) {
+  onDeleteCourse(course: Course): void {
     this.courseService.delete(course).subscribe(
       () => console.log("Delete completed"),
-      (err) => console.log("Deleted failed", err)
+      (err) => console.log("Deleted failed", err),
     );
   }
 }

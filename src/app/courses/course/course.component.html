@@ -9,7 +9,7 @@
     }
     <mat-table
       class="lessons-table mat-elevation-z8"
-      [dataSource]="lessons$ | async"
+      [dataSource]="(lessons$ | async) || []"
     >
       <ng-container matColumnDef="seqNo">
         <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
